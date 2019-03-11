@@ -1,7 +1,5 @@
 import re
 from django import template
-from django.template.defaulttags import token_kwargs
-from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from wagtail.core.rich_text import RichText, expand_db_html
 
@@ -20,6 +18,7 @@ __original__html__ = RichText.__html__
 # the HTML code we'll be working with generates nice
 # and predictable HTML code.
 heading_re = r"<h(\d)[^>]*>([^<]*)</h\1>"
+
 
 def add_id_attribute(match):
     """
@@ -40,6 +39,7 @@ def add_id_attribute(match):
     id = slugify(text_content)
     return f'<h{n} id="{id}""><a href="#{id}">{text_content}</a></h{n}>'
 
+
 def with_heading_ids(self):
     """
     We don't actually change how RichText.__html__ works, we just replace
@@ -49,6 +49,7 @@ def with_heading_ids(self):
     """
     html = __original__html__(self)
     return re.sub(heading_re, add_id_attribute, html)
+
 
 # Rebind the RichText's html serialization function such that
 # the output is still entirely functional as far as wagtail
