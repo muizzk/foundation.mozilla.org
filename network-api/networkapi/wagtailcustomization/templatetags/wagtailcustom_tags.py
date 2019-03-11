@@ -1,7 +1,7 @@
 import re
 from django import template
 from django.utils.text import slugify
-from wagtail.core.rich_text import RichText, expand_db_html
+from wagtail.core.rich_text import RichText
 
 # We don't actually register any tags: the idea is to tap into
 # the richtext filter, but that won't let us change _all_ the
