@@ -12,7 +12,7 @@ from wagtail.core.rich_text import RichText, expand_db_html
 register = template.Library()
 
 # We'll be wrapping the original RichText.__html__(), so make
-# sure we have a reference to it that we can all
+# sure we have a reference to it that we can call.
 __original__html__ = RichText.__html__
 
 # This matches an h1/.../h6, using a re that is only
