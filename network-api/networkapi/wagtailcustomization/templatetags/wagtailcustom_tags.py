@@ -15,7 +15,7 @@ register = template.Library()
 # sure we have a reference to it that we can call.
 __original__html__ = RichText.__html__
 
-# This matches an h1/.../h6, using a re that is only
+# This matches an h1/.../h6, using a regexp that is only
 # guaranteed to work because we know that the source of
 # the HTML code we'll be working with generates nice
 # and predictable HTML code.
