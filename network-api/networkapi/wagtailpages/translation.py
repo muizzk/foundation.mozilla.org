@@ -15,6 +15,7 @@ from .models import (
     OpportunityPage,
 
     CTA,
+    Signup,
     Petition,
 
     # DEPRECATED
@@ -69,6 +70,12 @@ class CTATR(TranslationOptions):
         'name',
         'header',
         'description',
+    )
+
+
+@register(Signup)
+class SignupTR(TranslationOptions):
+    fields = (
     )
 
 
